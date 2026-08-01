@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wear Your Identity | Every Kid Has A Story. Wear Yours.</title>
+    <meta name="description" content="Create your own digital identity page, get a unique QR code and wear it proudly on your custom T-shirt.">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Baloo 2', cursive;
+        background: #f7f9ff;
+        color: #222;
+        overflow-x: hidden;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      header {
+        background: linear-gradient(135deg, #0f52ff, #00b7ff);
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        height: 70px;
+      }
+
+      .nav-btn {
+        background: #ff5c00;
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .hero {
+        padding: 80px 0;
+        background: linear-gradient(135deg, #0f52ff, #00d4ff);
+        color: white;
+        text-align: center;
+      }
+
+      .hero-logo {
+        width: 280px;
+        max-width: 90%;
+        margin-bottom: 20px;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        line-height: 1.1;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 1.4rem;
+        max-width: 800px;
+        margin: auto;
+        margin-bottom: 30px;
+      }
+
+      .btn {
+        display: inline-block;
+        background: #ff6200;
+        color: white;
+        padding: 18px 40px;
+        border-radius: 60px;
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: 800;
+        transition: .3s;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 50px;
+        color: #0f52ff;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .step {
+        background: white;
+        padding: 30px;
+        border-radius: 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+        text-align: center;
+      }
+
+      .step span {
+        font-size: 3rem;
+      }
+
+      .step h3 {
+        margin: 15px 0;
+        font-size: 1.5rem;
+      }
+
+      .examples {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .card {
+        background: white;
+        padding: 30px;
+        border-radius: 25px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+      }
+
+      .card h3 {
+        font-size: 1.8rem;
+        color: #0f52ff;
+        margin-bottom: 15px;
+      }
+
+      .card p {
+        font-size: 1.1rem;
+        margin: 8px 0;
+      }
+
+      .founder {
+        background: #0f52ff;
+        color: white;
+        text-align: center;
+      }
+
+      .founder img {
+        width: 20%;
+        height: 20%;
+        border-radius: 50%;
+        background: white;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+
+      .founder h2 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .founder p {
+        font-size: 1.3rem;
+        max-width: 800px;
+        margin: auto;
+      }
+
+      .cta {
+        background: linear-gradient(135deg, #ff6200, #ff9f00);
+        color: white;
+        text-align: center;
+      }
+
+      .cta h2 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .cta p {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+      }
+
+      .whatsapp-btn {
+        display: inline-block;
+        background: #25D366;
+        color: white;
+        text-decoration: none;
+        padding: 20px 50px;
+        font-size: 1.3rem;
+        font-weight: 800;
+        border-radius: 70px;
+      }
+
+      footer {
+        background: #09143a;
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+      }
+
+      footer h3 {
+        font-size: 2rem;
+      }
+
+      footer p {
+        margin-top: 10px;
+      }
+
+      @media(max-width:768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .cta h2 {
+          font-size: 2.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <img src="images/logo_wyi.png" class="logo" alt="Wear Your Identity">
+          <a class="nav-btn" href="#identityForm" > Start Now </a>
+        </nav>
+      </div>
+    </header>
+    <section class="hero">
+      <div class="container">
+        <img src="images/logo_wyi.png" class="hero-logo" alt="Wear Your Identity">
+        <h1>Every Kid Has A Story. <br>Wear Yours. </h1>
+        <p> Create your own digital identity page, get a unique QR code, and wear it proudly on your custom T-shirt. </p>
+        <a class="btn" href="#identityForm"> Create My Identity </a>
+      </div>
+    </section>
+	<section class="section" style="background:#ffffff;padding-top:60px;padding-bottom:60px;">
+
+    <div class="container">
+
+        <div style="text-align:center;margin-bottom:20px;">
+<div style="
+display:inline-block;
+background:#ff6200;
+color:white;
+padding:8px 20px;
+border-radius:50px;
+font-weight:700;
+margin-bottom:20px;
+">
+✨ From Questions → Identity Page → QR Code → T-Shirt
+</div>
+            <h2 class="section-title" style="margin-bottom:10px;">
+                See The Magic In Action
+            </h2>
+
+            <p style="
+                max-width:850px;
+                margin:auto;
+                font-size:1.2rem;
+                color:#555;
+            ">
+                Every child has a unique story. We transform their dreams,
+                hobbies and personality into a digital identity page,
+                a custom QR code and a one-of-a-kind T-shirt.
+            </p>
+
+        </div>
+
+        <div style="
+            background:white;
+            border-radius:30px;
+            overflow:hidden;
+            box-shadow:0 15px 40px rgba(0,0,0,0.08);
+        ">
+
+            <img
+                src="images/concept_image.png"
+                alt="Wear Your Identity Concept"
+                style="
+                    width:100%;
+                    display:block;
+                "
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps">
+          <div class="step">
+            <span>🎨</span>
+            <h3>Tell Us About You</h3>
+            <p>Favourite colour, hobbies, dreams and talents.</p>
+          </div>
+          <div class="step">
+            <span>🌐</span>
+            <h3>Identity Page</h3>
+            <p>We create a fun webpage all about you.</p>
+          </div>
+          <div class="step">
+            <span>📱</span>
+            <h3>Your QR Code</h3>
+            <p>Your identity page becomes a QR code.</p>
+          </div>
+          <div class="step">
+            <span>👕</span>
+            <h3>Wear It</h3>
+            <p>Printed on your custom T-shirt.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" style="background:#eef4ff;">
+      <div class="container">
+        <h2 class="section-title">Example Identity Pages</h2>
+        <div class="examples">
+          <div class="card">
+            <h3>🎮 Aarav The Gamer</h3>
+            <p>Minecraft Expert</p>
+            <p>Favourite Colour: Blue</p>
+            <p>Dream: Game Developer</p>
+			<img src="images/aarav.png" width="100%" alt="Aarav Website">
+          </div>
+          <div class="card">
+            <h3>🎨 Siya The Artist</h3>
+            <p>Sketching & Painting</p>
+            <p>Favourite Colour: Purple</p>
+            <p>Dream: Illustrator</p>
+			<img src="images/siya.png" width="100%" alt="Aarav Website">
+          </div>
+          <div class="card">
+            <h3>⚽ Arjun Football Star</h3>
+            <p>School Captain</p>
+            <p>Favourite Colour: Green</p>
+            <p>Dream: National Player</p>
+			<img src="images/arjun.png" width="100%" alt="Aarav Website">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section founder">
+      <div class="container">
+        <h2>Meet The Founder</h2>
+        <img src="images/anvit.png" alt="Founder">
+        <p> Hi! I'm <strong>Anvit</strong>, a young entrepreneur who believes every child has a unique story worth sharing. I created Wear Your Identity so kids can express themselves through their own digital identity page and custom QR T-shirt. </p>
+      </div>
+    </section>
+    <section class="section cta">
+      <div class="container">
+        <h2>Ready To Create Your Identity?</h2>
+        <p> Answer a few fun questions and we'll create your identity page. </p>
+        <form id="identityForm" style="max-width:700px;margin:auto;">
+          <div style="margin-bottom:15px;">
+            <input type="text" id="name" placeholder="What's your name?" required style="width:100%;padding:16px;border:none;border-radius:12px;font-size:18px;">
+          </div>
+          <div style="margin-bottom:15px;">
+            <input type="number" id="age" placeholder="How old are you?" required style="width:100%;padding:16px;border:none;border-radius:12px;font-size:18px;">
+          </div>
+          <div style="margin-bottom:15px;">
+            <input type="text" id="nickname" placeholder="Do you have a cool nickname?" style="width:100%;padding:16px;border:none;border-radius:12px;font-size:18px;">
+          </div>
+          <div style="margin-bottom:15px;">
+            <input type="text" id="game" placeholder="Favourite Game?" style="width:100%;padding:16px;border:none;border-radius:12px;font-size:18px;">
+          </div>
+          <div style="margin-bottom:15px;">
+            <input type="text" id="youtuber" placeholder="Favourite YouTuber?" style="width:100%;padding:16px;border:none;border-radius:12px;font-size:18px;">
+          </div>
+          <div style="margin-bottom:15px;">
+            <input type="text" id="superpower" placeholder="If you had one superpower, what would it be?" required style="width:100%;padding:16px;border:none;border-radius:12px;font-size:18px;">
+          </div>
+          <div style="margin-bottom:15px;">
+            <input type="text" id="dream" placeholder="What do you want to become when you grow up?" required style="width:100%;padding:16px;border:none;border-radius:12px;font-size:18px;">
+          </div>
+          <div style="margin-bottom:15px;">
+            <input type="text" id="talent" placeholder="What's your special talent?" required style="width:100%;padding:16px;border:none;border-radius:12px;font-size:18px;">
+          </div>
+          <div style="margin-bottom:15px;">
+            <input type="text" id="schoolfamous" placeholder="What are you famous for among your friends?" style="width:100%;padding:16px;border:none;border-radius:12px;font-size:18px;">
+          </div>
+          <div style="margin-bottom:15px;">
+            <input type="text" id="achievement" placeholder="What's something you're really proud of?" style="width:100%;padding:16px;border:none;border-radius:12px;font-size:18px;">
+          </div>
+          <div style="margin-bottom:15px;">
+            <input type="text" id="destination" placeholder="One place you'd love to visit?" style="width:100%;padding:16px;border:none;border-radius:12px;font-size:18px;">
+          </div>
+          <div style="margin-bottom:15px;">
+            <textarea id="about" rows="5" placeholder="Tell us something awesome about yourself..." style="width:100%;padding:16px;border:none;border-radius:12px;font-size:18px;"></textarea>
+          </div>
+          <button type="submit" class="whatsapp-btn" style="border:none;cursor:pointer;"> 💬 Submit & Continue On WhatsApp </button>
+        </form>
+      </div>
+    </section>
+    <footer>
+      <h3>Wear Your Identity™</h3>
+      <p>Wear Your Story.</p>
+      <p>wearyouridentity.in</p>
+      <p>Founded by Anvit</p>
+    </footer>
+    <script>
+      document.getElementById('identityForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const age = document.getElementById('age').value;
+        const colour = document.getElementById('colour').value;
+        const hobby = document.getElementById('hobby').value;
+        const sport = document.getElementById('sport').value;
+        const hero = document.getElementById('hero').value;
+        const dream = document.getElementById('dream').value;
+        const about = document.getElementById('about').value;
+        const message = `Hi Anvit!
+
+I want to create my identity.
+
+Name: ${name}
+Age: ${age}
+Favourite Colour: ${colour}
+Favourite Hobby: ${hobby}
+Favourite Sport: ${sport}
+Hero: ${hero}
+Dream Career: ${dream}
+
+About Me:
+${about}`;
+        const whatsappUrl = `https://wa.me/919164536900?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+      });
+    </script>
+  </body>
+</html>
