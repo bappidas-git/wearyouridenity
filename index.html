@@ -235,6 +235,46 @@
           font-size: 2.2rem;
         }
       }
+
+      .zoomable-image {
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .zoomable-image:hover {
+        transform: scale(1.03);
+      }
+
+      .image-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.92);
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+      }
+
+      .modal-content {
+        max-width: 95%;
+        max-height: 90%;
+        border-radius: 12px;
+        box-shadow: 0 0 40px rgba(255, 255, 255, .2);
+      }
+
+      .close-modal {
+        position: absolute;
+        top: 20px;
+        right: 35px;
+        color: white;
+        font-size: 50px;
+        cursor: pointer;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
@@ -242,7 +282,7 @@
       <div class="container">
         <nav>
           <img src="images/logo_wyi.png" class="logo" alt="Wear Your Identity">
-          <a class="nav-btn" href="#identityForm" > Start Now </a>
+          <a class="nav-btn" href="#identityForm"> Start Now </a>
         </nav>
       </div>
     </header>
@@ -254,12 +294,10 @@
         <a class="btn" href="#identityForm"> Create My Identity </a>
       </div>
     </section>
-	<section class="section" style="background:#ffffff;padding-top:60px;padding-bottom:60px;">
-
-    <div class="container">
-
+    <section class="section" style="background:#ffffff;padding-top:60px;padding-bottom:60px;">
+      <div class="container">
         <div style="text-align:center;margin-bottom:20px;">
-<div style="
+          <div style="
 display:inline-block;
 background:#ff6200;
 color:white;
@@ -267,48 +305,28 @@ padding:8px 20px;
 border-radius:50px;
 font-weight:700;
 margin-bottom:20px;
-">
-✨ From Questions → Identity Page → QR Code → T-Shirt
-</div>
-            <h2 class="section-title" style="margin-bottom:10px;">
-                See The Magic In Action
-            </h2>
-
-            <p style="
+"> ✨ From Questions → Identity Page → QR Code → T-Shirt </div>
+          <h2 class="section-title" style="margin-bottom:10px;"> See The Magic In Action </h2>
+          <p style="
                 max-width:850px;
                 margin:auto;
                 font-size:1.2rem;
                 color:#555;
-            ">
-                Every child has a unique story. We transform their dreams,
-                hobbies and personality into a digital identity page,
-                a custom QR code and a one-of-a-kind T-shirt.
-            </p>
-
+            "> Every child has a unique story. We transform their dreams, hobbies and personality into a digital identity page, a custom QR code and a one-of-a-kind T-shirt. </p>
         </div>
-
         <div style="
             background:white;
             border-radius:30px;
             overflow:hidden;
             box-shadow:0 15px 40px rgba(0,0,0,0.08);
         ">
-
-            <img
-                src="images/concept_image.png"
-                alt="Wear Your Identity Concept"
-                style="
+          <img src="images/concept_image.png" alt="Wear Your Identity Concept" style="
                     width:100%;
                     display:block;
-                "
-            >
-
+                ">
         </div>
-
-    </div>
-
-</section>
-
+      </div>
+    </section>
     <section class="section">
       <div class="container">
         <h2 class="section-title">How It Works</h2>
@@ -345,21 +363,21 @@ margin-bottom:20px;
             <p>Minecraft Expert</p>
             <p>Favourite Colour: Blue</p>
             <p>Dream: Game Developer</p>
-			<img src="images/aarav.png" width="100%" alt="Aarav Website">
+            <img src="images/aarav.png" width="100%" alt="Aarav Website" class="zoomable-image">
           </div>
           <div class="card">
             <h3>🎨 Siya The Artist</h3>
             <p>Sketching & Painting</p>
             <p>Favourite Colour: Purple</p>
             <p>Dream: Illustrator</p>
-			<img src="images/siya.png" width="100%" alt="Aarav Website">
+            <img src="images/siya.png" width="100%" alt="Siya Website" class="zoomable-image">
           </div>
           <div class="card">
             <h3>⚽ Arjun Football Star</h3>
             <p>School Captain</p>
             <p>Favourite Colour: Green</p>
             <p>Dream: National Player</p>
-			<img src="images/arjun.png" width="100%" alt="Aarav Website">
+            <img src="images/arjun.png" width="100%" alt="Arjun Website" class="zoomable-image">
           </div>
         </div>
       </div>
@@ -449,6 +467,33 @@ About Me:
 ${about}`;
         const whatsappUrl = `https://wa.me/919164536900?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
+      });
+    </script>
+    <div id="imageModal" class="image-modal">
+      <span class="close-modal">&times;</span>
+      <img id="modalImage" class="modal-content">
+    </div>
+    <script>
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      document.querySelectorAll('.zoomable-image').forEach(img => {
+        img.addEventListener('click', function() {
+          modal.style.display = 'flex';
+          modalImg.src = this.src;
+        });
+      });
+      document.querySelector('.close-modal').addEventListener('click', function() {
+        modal.style.display = 'none';
+      });
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          modal.style.display = 'none';
+        }
       });
     </script>
   </body>
