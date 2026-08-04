@@ -332,9 +332,19 @@ margin-bottom:20px;
         <h2 class="section-title">How It Works</h2>
         <div class="steps">
           <div class="step">
-            <span>🎨</span>
-            <h3>Tell Us About You</h3>
-            <p>Favourite colour, hobbies, dreams and talents.</p>
+            <span>❓</span>
+            <h3>Answer Fun Questions</h3>
+            <p>Tell us about yourself, your hobbies, dreams, and talents.</p>
+          </div>
+          <div class="step">
+            <span>🕒</span>
+            <h3>Review Your Design</h3>
+            <p> Within 24 hours, we'll send you your personalized identity website and a preview of your custom T-shirt on WhatsApp. If you'd like any changes, simply message us on our WhatsApp number, and we'll make the updates before finalizing your order. </p>
+          </div>
+          <div class="step">
+            <span>💳</span>
+            <h3>Complete Your ₹600 Order</h3>
+            <p>After submitting your answers, complete your ₹600 order on WhatsApp and share your payment screenshot so we can start creating your identity page.</p>
           </div>
           <div class="step">
             <span>🌐</span>
@@ -344,12 +354,12 @@ margin-bottom:20px;
           <div class="step">
             <span>📱</span>
             <h3>Your QR Code</h3>
-            <p>Your identity page becomes a QR code.</p>
+            <p>Your identity page becomes a unique QR code.</p>
           </div>
           <div class="step">
             <span>👕</span>
             <h3>Wear It</h3>
-            <p>Printed on your custom T-shirt.</p>
+            <p>Your QR code is printed on your custom T-shirt.</p>
           </div>
         </div>
       </div>
@@ -425,7 +435,18 @@ margin-bottom:20px;
             <input type="text" id="achievement" placeholder="What's something you're really proud of?" style="width:100%;padding:16px;border:none;border-radius:12px;font-size:18px;">
           </div>
           <div style="margin-bottom:15px;">
-            <input type="text" id="destination" placeholder="One place you'd love to visit?" style="width:100%;padding:16px;border:none;border-radius:12px;font-size:18px;">
+            <select id="destination" required style="width:100%;padding:16px;border:none;border-radius:12px;font-size:18px;background:white;color:#333;">
+              <option value="" selected disabled>Choose your favourite colour</option>
+              <option value="Black">Black</option>
+              <option value="White">White</option>
+              <option value="Red">Red</option>
+              <option value="Yellow">Yellow</option>
+              <option value="Lilac">Lilac</option>
+              <option value="Mint Green">Mint Green</option>
+              <option value="Soft Pink">Soft Pink</option>
+              <option value="Teal Green">Teal Green</option>
+              <option value="Sky Blue">Sky Blue</option>
+            </select>
           </div>
           <div style="margin-bottom:15px;">
             <textarea id="about" rows="5" placeholder="Tell us something awesome about yourself..." style="width:100%;padding:16px;border:none;border-radius:12px;font-size:18px;"></textarea>
@@ -453,7 +474,7 @@ margin-bottom:20px;
         const talent = document.getElementById('talent').value;
         const schoolfamous = document.getElementById('schoolfamous').value;
         const achievement = document.getElementById('achievement').value;
-        const destination = document.getElementById('destination').value;
+        const color = document.getElementById('destination').value;
         const about = document.getElementById('about').value;
         const message = `Hi Anvit!
 
@@ -461,7 +482,7 @@ I want to create my identity.
 
 Name: ${name}
 Age: ${age}
-Nick Name: ${nickname}
+Nickname: ${nickname}
 Favourite Game: ${game}
 Favourite YouTuber: ${youtuber}
 Super Power: ${superpower}
@@ -469,12 +490,12 @@ Dream Career: ${dream}
 Special Talent: ${talent}
 Famous For: ${schoolfamous}
 Proud Achievement: ${achievement}
-Dream Destination: ${destination}
+Favourite Colour: ${color}
 
 About Me:
 ${about}`;
         const whatsappUrl = `https://wa.me/919164536900?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
+        window.location.href = whatsappUrl;
       });
     </script>
     <div id="imageModal" class="image-modal">
